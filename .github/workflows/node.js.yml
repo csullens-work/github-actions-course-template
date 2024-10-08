@@ -14,8 +14,8 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 12.x
       - name: npm install and build webpack
@@ -37,13 +37,13 @@ jobs:
         os: [ubuntu-latest, windows-2016]
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/download-artifact@master
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
         with:
           name: webpack artifacts
           path: public
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
       - name: npm install, and test
